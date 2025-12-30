@@ -7,7 +7,8 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "src/test/java/features/01_Launch.feature",
-        glue = {"stepdefinations"},
+//        features="src/test/java/features/PhoneNumberPage.feature",
+        glue = {"stepdefinations","hooks"},
         dryRun = false,
         // tags ="@sanity or @regression", // Ensure correct tag syntax,
         // tags= "@sanity",  // this will execute only sanity
