@@ -1,15 +1,17 @@
 package stepdefinations;
-import io.cucumber.java.en.Given;
+import io.cucumber.java.en.*;
 import appTest.AppTest;
+import pageObjects.CreatePost;
 
-public class ChataakLaunchApp {
+public class RidergroupLaunchApp {
 
     private final BaseClass baseClass;
     private AppTest appTest;
-
-    public ChataakLaunchApp(BaseClass baseClass) {
+    private CreatePost post;
+    public RidergroupLaunchApp(BaseClass baseClass) {
         this.baseClass = baseClass;
         this.appTest = new AppTest();
+        this.post=new CreatePost();
         System.out.println("ChataakLaunchApp constructor called. BaseClass injected.");
     }
 
@@ -43,7 +45,42 @@ public class ChataakLaunchApp {
 
         System.out.println("=== STEP EXECUTION COMPLETE ===");
     }
+
+
+    @When("user navigates to post creation screen")
+    public void user_navigates_to_post_creation_screen() throws InterruptedException {
+        post.userCreatesPost();
+    }
+    @When("user selects an image from gallery")
+    public void user_selects_an_image_from_gallery() {
+
+    }
+    @When("user adds a caption to the post")
+    public void user_adds_a_caption_to_the_post() {
+
+    }
+    @When("user posts the image")
+    public void user_posts_the_image() {
+
+    }
+    @Then("the post should be created successfully")
+    public void the_post_should_be_created_successfully() {
+
+    }
+
+
+
+
 }
+
+
+
+
+
+
+
+
+
 
 //import appTest.AppTest;
 //import io.appium.java_client.android.AndroidDriver;

@@ -16,14 +16,21 @@ import org.junit.runner.RunWith;
         //tags="@sanity and @regression" // Executes scenarios with both @sanity and @regression
         //tags="@sanity or @regression"   //Executess sceanrio either sanity or regression//tags="@sanity and not @regression"  // Executes scenarios with @sanity but not @regression
         plugin = {
+//                "pretty",
+//                "html:target/cucumber-reports.html", // HTML Report
+//                "json:target/cucumber-reports/cucumber.json" // JSON Report
+////                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:", // Extent Reports
+////                "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",  // <-- updated plugin name
                 "pretty",
                 "html:target/cucumber-reports.html", // HTML Report
-                "json:target/cucumber-reports/cucumber.json" // JSON Report
-//                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:", // Extent Reports
+                "json:target/cucumber-reports/cucumber.json", // JSON Report
+                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:", // Extent Reports
 //                "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",  // <-- updated plugin name
-        },
-        monochrome = true
 
+        },
+        monochrome = true,
+        // IMPORTANT: This ensures each scenario runs independently
+        snippets = CucumberOptions.SnippetType.CAMELCASE
 )
 public class TestRunner {
 }
