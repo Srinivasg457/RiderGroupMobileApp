@@ -51,24 +51,6 @@ public class RidergroupLaunchApp {
     public void user_navigates_to_post_creation_screen() throws InterruptedException {
         post.userCreatesPost();
     }
-    @When("user selects an image from gallery")
-    public void user_selects_an_image_from_gallery() {
-
-    }
-    @When("user adds a caption to the post")
-    public void user_adds_a_caption_to_the_post() {
-
-    }
-    @When("user posts the image")
-    public void user_posts_the_image() {
-
-    }
-    @Then("the post should be created successfully")
-    public void the_post_should_be_created_successfully() {
-
-    }
-
-
 
 
 }

@@ -87,7 +87,6 @@ public class AppTest {
     }
 
 
-
     public void userCreatesPost() throws InterruptedException {
         try {
             // Try to find the email field
