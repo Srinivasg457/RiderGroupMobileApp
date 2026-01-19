@@ -6,9 +6,11 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/java/features/01_SignUp.feature",
+//        features = "src/test/java/features",
 //        features="src/test/java/features/PhoneNumberPage.feature",
-       // "/src/test/java/features/01_SignUp.feature"
+//       features="/src/test/java/features/01_SignUp.feature"
+//        features="src/test/java/features/02_Launch.feature",
+        features="src/test/java/features/LoginPage.feature",
         glue = {"stepdefinations","hooks"},
         dryRun = false,
         // tags ="@sanity or @regression", // Ensure correct tag syntax,

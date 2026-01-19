@@ -2,21 +2,30 @@ package stepdefinations;
 import io.cucumber.java.en.*;
 import appTest.AppTest;
 import pageObjects.CreatePost;
+import pageObjects.ridergroupLoginPage;
 
-public class RidergroupLaunchApp {
+import java.io.IOException;
+//import java.util.logging.Logger;
+import org.apache.log4j.Logger; // ADD THIS
 
+public class RidergroupLaunchApp  {
+    private static final Logger logger = Logger.getLogger(String.valueOf(RidergroupLaunchApp.class));
     private final BaseClass baseClass;
     private AppTest appTest;
     private CreatePost post;
-    public RidergroupLaunchApp(BaseClass baseClass) {
+    private ridergroupLoginPage loginpage;
+    public RidergroupLaunchApp(BaseClass baseClass) throws IOException {
         this.baseClass = baseClass;
         this.appTest = new AppTest();
         this.post=new CreatePost();
-        System.out.println("ChataakLaunchApp constructor called. BaseClass injected.");
+        this.loginpage=new ridergroupLoginPage();
+        System.out.println("Ridergroup launch App constructor called. BaseClass injected.");
     }
 
-    @Given("uer navigates to chataak application")
-    public void uer_navigates_to_chataak_application() throws InterruptedException {
+    @Given("user navigates to Rider Group Application")
+    public void user_navigates_to_Rider_Group_Application() throws InterruptedException {
+        logger.info("*** Starting The Emulator Android Device  ***");
+
         System.out.println("=== STEP EXECUTION START ===");
 
         // Debug the state
@@ -40,97 +49,33 @@ public class RidergroupLaunchApp {
             throw new RuntimeException("Initialization error. Check @Before hook.");
         }
 
-        System.out.println("Calling navigateToLoginPage...");
-        appTest.navigateToLoginPage(baseClass.driver, baseClass.wait);
-
+        System.out.println("Calling RiderGroup Login Page...");
+        logger.info("*** Entering The Email   ***");
+        loginpage.emailTextBox();
+        logger.info("*** Entering The Password  ***");
+        loginpage.passwordTextBox();
+        logger.info("*** Clicking The Login Button   ***");
+        loginpage.loginButton();
         System.out.println("=== STEP EXECUTION COMPLETE ===");
     }
 
 
     @When("user navigates to post creation screen")
     public void user_navigates_to_post_creation_screen() throws InterruptedException {
+
         post.userCreatesPost();
+        post.Addbtn();
     }
 
 
+//    @When("user Scroll down till the end of the all posts")
+//    public void userScrollDownTillTheEndOfTheAllPosts() {
+//
+//    }
+    @When("user Scroll down till the end of the all posts")
+    public void user_scroll_down_till_the_end_of_the_all_posts() {
+        post.switchbetweenTabs();
+    }
+
 }
 
-
-
-
-
-
-
-
-
-
-//import appTest.AppTest;
-//import io.appium.java_client.android.AndroidDriver;
-//import io.cucumber.java.en.*;
-//
-//import java.net.MalformedURLException;
-//
-//public class chataaklaunchApp extends AppTest {
-//
-//    public chataaklaunchApp(stepdefinations.BaseClass baseClass) {
-//        super(baseClass);
-//    }
-//
-//    public class BaseClass {
-//        public AndroidDriver driver;
-//    }
-////    AppTest test = new AppTest();
-//
-//    @Given("uer navigates to chataak application")
-//    public void uer_navigates_to_chataak_application() throws MalformedURLException, InterruptedException {
-////       test.ridergroup();
-////        // test.openmobileapp();
-//////        test.clearAppCache();
-////        test.closeApp();
-////        test.ridergroupEmulatorLaunch();
-//        AppTest test;
-//        test.ridergroupEmulatorLoginPage();
-//    }
-//
-////    @Then("Enter with the mobile number and the otp")
-////    public void enter_with_the_mobile_number_and_the_otp() {
-////
-////    }
-////
-////    @Then("Performs an Operation to Order an product")
-////    public void performs_an_operation_to_order_an_product() {
-////
-////    }
-//
-//
-////        @Given("uer navigates to chataak application")
-////        public void uer_navigates_to_chataak_application() {
-////            try {
-////                ChataakActions.launchApp();
-////            } catch (Exception e) {
-////                e.printStackTrace();
-////            }
-////        }
-////
-////        @Then("Enter with the mobile number and the otp")
-////        public void enter_with_the_mobile_number_and_the_otp() {
-////            try {
-////                ChataakActions.login("8105914136");
-////            } catch (Exception e) {
-////                e.printStackTrace();
-////            }
-////        }
-////
-////        @Then("Performs an Operation to Order an product")
-////        public void performs_an_operation_to_order_an_product() {
-////            try {
-////                ChataakActions.orderProduct("pre");
-////            } catch (Exception e) {
-////                e.printStackTrace();
-////            } finally {
-////                ChataakActions.closeApp();
-////            }
-////        }
-//
-//
-//}

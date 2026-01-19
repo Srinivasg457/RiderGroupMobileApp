@@ -1,11 +1,14 @@
 package stepdefinations;
 import io.appium.java_client.android.AndroidDriver;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BaseClass {
     // Keep these as instance variables for PicoContainer injection
     public static AndroidDriver driver;
     public static WebDriverWait wait;
+    protected static final Logger logger = Logger.getLogger(BaseClass.class);
+
 }
 
 
