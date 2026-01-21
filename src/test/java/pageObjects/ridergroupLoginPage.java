@@ -123,17 +123,36 @@ public class ridergroupLoginPage {
     }
 
     public void WelcomeMessage() {
+        WebElement welcomeUserMsg = null;
         try {
-            WebElement welcomeUserMsg = waithelper.WaitForElement1(loggedInUserName, 20);
-            if (welcomeUserMsg.isDisplayed() && welcomeUserMsg.isEnabled()) {
-                String userName=welcomeUserMsg.getAttribute("content-desc");
-                System.out.println("userName ="+userName);
-                Assert.assertTrue(true);
+            welcomeUserMsg = waithelper.WaitForElement1(loggedInUserName, 20);
+
+            if (welcomeUserMsg != null && welcomeUserMsg.isDisplayed() && welcomeUserMsg.isEnabled()) {
+                String userName = welcomeUserMsg.getAttribute("content-desc");
+                System.out.println("userName = " + userName);
+                Assert.assertTrue("Welcome message should contain 'Hey'", userName.contains("Hey"));
             } else {
-                Assert.fail("The User Welcome Message Not Displayed ");
+                Assert.fail("The User Welcome Message Not Displayed or Enabled");
             }
         } catch (Exception e) {
             System.out.println("Unexpected error: " + e.getMessage());
+            e.printStackTrace(); // Add this to see full stack trace
+            Assert.fail("Failed to verify welcome message: " + e.getMessage());
         }
     }
+
+//    public void WelcomeMessage() {
+//        try {
+//            WebElement welcomeUserMsg = waithelper.WaitForElement1(loggedInUserName, 20);
+//            if (welcomeUserMsg.isDisplayed() && welcomeUserMsg.isEnabled()) {
+//                String userName=welcomeUserMsg.getAttribute("content-desc");
+//                System.out.println("userName ="+userName);
+//                Assert.assertTrue(true);
+//            } else {
+//                Assert.fail("The User Welcome Message Not Displayed ");
+//            }
+//        } catch (Exception e) {
+//            System.out.println("Unexpected error: " + e.getMessage());
+//        }
+//    }
 }
