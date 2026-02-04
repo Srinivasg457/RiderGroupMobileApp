@@ -1,0 +1,9 @@
+# Ignore generated & non-source folders for GitHub language stats
+.idea/** linguist-generated
+log/** linguist-generated
+downloads/** linguist-generated
+apkfiles/** linguist-generated
+target/** linguist-generated
+test-output/** linguist-generated
+test-output1/** linguist-generated
+images/** linguist-generated

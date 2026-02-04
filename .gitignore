@@ -36,3 +36,22 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+# IDE
+.idea/
+
+# Logs
+log/
+*.log
+
+# Downloads & APKs
+downloads/
+apkfiles/
+
+# Build & reports
+target/
+test-output/
+test-output1/
+
+# OS
+.DS_Store
