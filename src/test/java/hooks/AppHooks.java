@@ -617,14 +617,14 @@ public class AppHooks {
     @Before(order = 0)
     public void launchRiderGroupApp() throws MalformedURLException {
         System.out.println("══════════════════════════════════════════════════");
-        System.out.println("🚀 STARTING Bluetooth Mobile APP (Docker: " + USE_DOCKER + ")");
+        System.out.println("🚀 STARTING Rider Group Mobile APP (Docker: " + USE_DOCKER + ")");
         System.out.println("══════════════════════════════════════════════════");
 
         UiAutomator2Options options = new UiAutomator2Options();
 
         // ✅ Rider Group Tracker App details
-        options.setAppPackage("com.limitscale.aironaut");
-        options.setAppActivity(".MainActivity");
+        options.setAppPackage("com.example.rider_group_tracker");
+        options.setAppActivity("com.example.rider_group_tracker.MainActivity");
         options.setAutoGrantPermissions(true);
 
         // ✅ Device configuration - SIMPLIFIED
