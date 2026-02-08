@@ -1,9 +1,8 @@
-# RiderGroup Mobile Automation Framework
+# Bluetooth Mobile Application Automation Framework
 
 ## 🚀 Tech Stack
 - Java
-- Appium
-- Selenium WebDriver
+- Appium Driver
 - Cucumber (BDD)
 - Maven
 - TestNG
